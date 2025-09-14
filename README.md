@@ -1,3 +1,10 @@
+# Modifications in SebiAi/ffmpeg-kit-16KB
+Add a `Dockerfile`, `android-docker.sh` and `android-docker-full-no-gpl.sh` for easy building of the android library.
+
+`android-docker.sh` builds the docker container with all the required dependencies, mounts ffmpeg-kit's dir into it and then runs `android.sh` inside with all the arguments supplied to the script.
+
+`android-docker-full-no-gpl.sh` does the same as `android-docker.sh` but has arguments hard coded that build the full non gpl (lgpl) kit for android.
+
 # 16KB Page Size Update
 This fork only aims to make ffmpeg-kit compatible with new android versions (API 35) which request all binaries to be rebuilt.
 Google request developers to build new with new r27 and r28 ndk but ffmpeg-kit has its own NDK compatibility table which supports only upto r25.</p>
