@@ -12,4 +12,4 @@ IMAGE_NAME="ffmpeg-kit-android-build-container"
 sudo docker build -t "${IMAGE_NAME}" -f "${SCRIPT_DIR}/Dockerfile" .
 
 # Run docker container as current user and build project
-sudo docker run -u $(id -u):$(id -g) --rm --cpus=$(($(nproc)-1 < 1 ? 1 : $(nproc)-1)) -v "${PROJECT_DIR}:/project" "${IMAGE_NAME}" bash -c "cd /project && ./android.sh $(printf ' %q' "$@")"
+sudo docker run -u $(id -u):$(id -g) --rm --cpus=$(($(nproc)-1 < 1 ? 1 : $(nproc)-1)) -v "${PROJECT_DIR}:/project" "${IMAGE_NAME}" bash -c "cd /project && ./android.sh${@+ $(printf ' %q' "$@")}"
